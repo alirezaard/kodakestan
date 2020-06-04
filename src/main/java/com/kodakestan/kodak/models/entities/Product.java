@@ -1,4 +1,34 @@
 package com.kodakestan.kodak.models.entities;
 
+import lombok.Data;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+import java.sql.Date;
+import java.util.List;
+import java.util.UUID;
+
+@Data
+@Document("product")
 public class Product {
+    @MongoId
+    private ObjectId id;
+    @Indexed
+    private String uuid = UUID.randomUUID().toString();
+    @DBRef
+    private List<Image> image;
+    private Date lastModify;
+    private Long price;
+    private Long discount;
+    private String description;
+    private int numberOfGoods;
+    private Gender gender;
+    private int minAge;
+    private int maxAge;
+    private Boolean isDeleted = false;
+    private String categoryUUID;
+    private Long like = 0L;
 }

@@ -7,29 +7,20 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Data
-@Document("category")
-public class Category {
+@Document("children")
+public class Children {
     @MongoId
     private ObjectId id;
     @Indexed
     private String uuid = UUID.randomUUID().toString();
-    private String title;
-    private String description;
-    private String parentUUID;
+    private String name;
+    private Date birthday;
     @DBRef
-    private List<Category> subCategory;
-
-
-    public List<String> allSubCategory() {
-        List<String> result = new ArrayList<>();
-        result.add(this.getUuid());
-        if (getSubCategory() != null && !getSubCategory().isEmpty())
-            getSubCategory().forEach(e -> result.addAll(e.allSubCategory()));
-        return result;
-    }
+    private List<Image> images;
+    private String parentUUID;
 }
