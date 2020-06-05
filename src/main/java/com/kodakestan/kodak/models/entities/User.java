@@ -31,7 +31,7 @@ public class User {
     private Role role;
     private Gender gender;
     private Long birthday;
-    @DBRef
+    @DBRef(lazy = true)
     private List<Children> children;
     private Boolean active = false;
 }

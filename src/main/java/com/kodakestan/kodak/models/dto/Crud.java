@@ -2,6 +2,7 @@ package com.kodakestan.kodak.models.dto;
 
 import com.kodakestan.kodak.models.entities.Image;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  * @version 1.0.0
  * date 6.5.2020
  */
-public interface Crud<In, Out> {
+public interface Crud<In, Out> extends Serializable {
     Out insert(In in);
     void delete(In in);
     List<In> getAll();
