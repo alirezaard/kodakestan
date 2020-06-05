@@ -11,6 +11,11 @@ import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author Alireza
+ * @version 1.0.0
+ * @date 6.5.2020
+ */
 @Data
 @Document("user")
 public class User {

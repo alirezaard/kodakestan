@@ -4,11 +4,16 @@ import com.kodakestan.kodak.dao.ArticleRepo;
 import com.kodakestan.kodak.models.dto.Crud;
 import com.kodakestan.kodak.models.dto.input.ArticleInputDto;
 import com.kodakestan.kodak.models.dto.output.ArticleOutputDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.inject.Inject;
 import java.util.List;
 
+/**
+ * @author Alireza
+ * @version 1.0.0
+ * @date 6.5.2020
+ */
 @Service
 public class ArticleService implements Crud<ArticleInputDto, ArticleOutputDto> {
 

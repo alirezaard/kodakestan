@@ -1,5 +1,10 @@
 package com.kodakestan.kodak.models.entities;
 
-public enum  Role {
-    Admin,Buyer
+/**
+ * @author Alireza
+ * @version 1.0.0
+ * @date 6.5.2020
+ */
+public enum Role {
+    Admin, Buyer
 }
