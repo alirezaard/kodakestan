@@ -24,7 +24,7 @@ public class Children {
     @Indexed
     private String uuid = UUID.randomUUID().toString();
     private String name;
-    private Date birthday;
+    private Long birthday;
     @DBRef
     private List<Image> images;
     private String parentUUID;

@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,7 +24,7 @@ public class Product {
     private String uuid = UUID.randomUUID().toString();
     @DBRef
     private List<Image> image;
-    private Date lastModify;
+    private Long lastModify;
     private Long price;
     private Long discount;
     private String description;

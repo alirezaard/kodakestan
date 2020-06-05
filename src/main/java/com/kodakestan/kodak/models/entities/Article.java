@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,7 +26,7 @@ public class Article {
     private List<Image> images;
     private String memories;
     private List<String> tags;
-    private Date date;
+    private Long date;
     private String owner;
     private Long like = 0L;
     private boolean visible;

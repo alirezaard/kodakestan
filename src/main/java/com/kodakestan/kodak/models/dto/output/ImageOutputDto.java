@@ -9,6 +9,6 @@ import lombok.Data;
  */
 @Data
 public class ImageOutputDto {
-    private String imgFile;
+    private String imageStr;
     private String uuid;
 }

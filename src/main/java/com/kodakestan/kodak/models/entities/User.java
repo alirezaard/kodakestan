@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,7 +30,7 @@ public class User {
     private Image logo;
     private Role role;
     private Gender gender;
-    private Date birthday;
+    private Long birthday;
     @DBRef
     private List<Children> children;
     private Boolean active = false;

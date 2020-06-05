@@ -58,7 +58,7 @@ public class ImageMapper {
         byte[] bytes = IOUtils.toByteArray(gridFSDBFile.getInputStream());
         String str = Base64.getEncoder().encodeToString(bytes);
 
-        dto.setImgFile(str);
+        dto.setImageStr(str);
         return dto;
     }
 

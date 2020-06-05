@@ -90,12 +90,6 @@
             <optional>true</optional>
         </dependency>
         <!--***********************************************************-->
-        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
-        <!--        <dependency>-->
-        <!--            <groupId>javax.inject</groupId>-->
-        <!--            <artifactId>javax.inject</artifactId>-->
-        <!--            <version>1</version>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -115,10 +109,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-
-
         <!--***********************************************************-->
-        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

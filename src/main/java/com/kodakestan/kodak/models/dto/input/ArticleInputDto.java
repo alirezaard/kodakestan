@@ -16,6 +16,6 @@ public class ArticleInputDto {
     private String memories;
     private List<String> tag;
     private String owner;
-    private Long like;
+    //    private Long like;
     private boolean visible;
 }
