@@ -32,6 +32,18 @@ public class ImageMapper {
         return img;
     }
 
+    public Image fileToImage(ImageDto dto) throws IOException {
+        if (dto.getFile() == null)
+            return null;
+        Image img = new Image();
+        GridFSInputFile gridFSFile = gridFS.createFile(dto.getFile().getInputStream());
+        gridFSFile.setFilename((int) (Math.random() * 100000) + dto.getFile().getName());
+        gridFSFile.setContentType("");
+        gridFSFile.save();
+        img.setId((ObjectId) gridFSFile.getId());
+        return img;
+    }
+
     public List<Image> multiPartListToImage(List<MultipartFile> files) throws IOException {
         List<Image> list = new ArrayList<>();
         for (MultipartFile file : files) {
@@ -44,6 +56,9 @@ public class ImageMapper {
     public List<Image> fileToImage(List<ImageDto> dtos) throws IOException {
         List<Image> list = new ArrayList<>();
         for (ImageDto dto : dtos) {
+            if (dto.getFile() == null) {
+                continue;
+            }
             MultipartFile file = dto.getFile();
             Image img = fileToImage(file);
             list.add(img);
@@ -60,6 +75,13 @@ public class ImageMapper {
 
         dto.setImageStr(str);
         return dto;
+    }
+
+    public ImageDto imageToImageDto(Image img) {
+        if (img == null)
+            return null;
+        GridFSDBFile gridFSDBFile = gridFS.find(img.getId());
+        //todo fix this
     }
 
 }

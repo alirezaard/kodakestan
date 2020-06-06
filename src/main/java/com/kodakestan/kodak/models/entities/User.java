@@ -1,5 +1,6 @@
 package com.kodakestan.kodak.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -7,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +27,8 @@ public class User {
     private String fullName;
     private String email;
     private String phoneNumber;
+    @JsonIgnore
+    @NotNull
     private String password;
     @DBRef
     private Image logo;
@@ -32,6 +36,6 @@ public class User {
     private Gender gender;
     private Long birthday;
     @DBRef(lazy = true)
-    private List<Children> children;
     private Boolean active = false;
+    private List<Children> children;
 }
