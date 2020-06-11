@@ -5,8 +5,6 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.util.UUID;
-
 /**
  * @author Alireza
  * @version 1.0.0
@@ -17,6 +15,5 @@ import java.util.UUID;
 public class Image {
     @MongoId
     private ObjectId id;
-    private String uuid = UUID.randomUUID().toString();
     private Boolean deleted = false;
 }

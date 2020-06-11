@@ -77,11 +77,13 @@ public class ImageMapper {
         return dto;
     }
 
-    public ImageDto imageToImageDto(Image img) {
+    public ImageOutputDto imageToImageDto(Image img) throws IOException {
         if (img == null)
             return null;
         GridFSDBFile gridFSDBFile = gridFS.find(img.getId());
-        //todo fix this
+        byte[] bytes = IOUtils.toByteArray(gridFSDBFile.getInputStream());
+        String str = Base64.getEncoder().encodeToString(bytes);
+        return new ImageOutputDto(str);
     }
 
 }
