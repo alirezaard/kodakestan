@@ -4,13 +4,16 @@ package com.kodakestan.kodak.Exceptions.handler;
  * Created by Mostafa.Farhadi on 9/3/2019.
  */
 
+import com.kodakestan.kodak.configuration.utils.MessageUtils;
+import com.kodakestan.kodak.configuration.utils.RestResponse;
+import com.kodakestan.kodak.services.MessageService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -21,16 +24,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
-import us.dallas.com.thnx.advertising.business.impl.MessageService;
-import us.dallas.com.thnx.advertising.commons.MessageUtils;
-import us.dallas.com.thnx.advertising.commons.RestResponse;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static us.dallas.com.thnx.advertising.Exceptions.handler.ExceptionType.*;
+import static com.kodakestan.kodak.Exceptions.handler.ExceptionType.*;
 
 
 /**
