@@ -1,8 +1,4 @@
 package com.kodakestan.kodak.Exceptions.handler;
-/**
- * Copyright (c) 2019 , thnx  Project . All Rights Reserved
- * Created by Mostafa.Farhadi on 9/3/2019.
- */
 
 import com.kodakestan.kodak.configuration.utils.MessageUtils;
 import com.kodakestan.kodak.configuration.utils.RestResponse;
