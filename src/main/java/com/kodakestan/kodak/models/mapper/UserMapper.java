@@ -1,8 +1,9 @@
 package com.kodakestan.kodak.models.mapper;
 
-import com.kodakestan.kodak.models.dto.ImageDto;
 import com.kodakestan.kodak.models.dto.input.UserInputDto;
+import com.kodakestan.kodak.models.dto.output.ImageOutputDto;
 import com.kodakestan.kodak.models.dto.output.UserOutputDto;
+import com.kodakestan.kodak.models.entities.Gender;
 import com.kodakestan.kodak.models.entities.Role;
 import com.kodakestan.kodak.models.entities.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,13 +42,16 @@ public class UserMapper {
         return user;
     }
 
-    public UserOutputDto userToDto(User user) {
+    public UserOutputDto userToDto(User user) throws IOException {
         UserOutputDto dto = new UserOutputDto();
 
         dto.setUuid(user.getUuid());
         dto.setPhoneNumber(user.getPhoneNumber());
         //todo fix this
-        dto.setLogo(user.getLogo());
+        if (user.getLogo() != null)
+            dto.setLogo(imgMapper.imageToDto(user.getLogo().getId()));
+        else
+            dto.setLogo(setAvatar(user));
         dto.setGender(user.getGender());
         dto.setFullName(user.getFullName());
         dto.setEmail(user.getEmail());
@@ -56,5 +60,14 @@ public class UserMapper {
         dto.setActive(user.getActive());
 
         return dto;
+    }
+
+    private ImageOutputDto setAvatar(User user) throws IOException {
+        if (user.getGender() == Gender.Male)
+            return new ImageOutputDto(ImageMapper.getImgMan());
+        if (user.getGender() == Gender.Female)
+            return new ImageOutputDto(ImageMapper.getImgWMan());
+        //if (user.getGender() == Gender.Both)
+        return new ImageOutputDto(ImageMapper.getImgMan());
     }
 }

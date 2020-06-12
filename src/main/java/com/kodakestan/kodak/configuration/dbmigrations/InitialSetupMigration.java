@@ -14,7 +14,7 @@ import java.util.Map;
  * Creates the initial database setup
  */
 
-//todo fix this.....................................................
+//todo fix this (complete this).....................................
 @ChangeLog(order = "001")
 public class InitialSetupMigration {
 

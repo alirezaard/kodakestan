@@ -11,7 +11,7 @@ public class UserOutputDto {
     private String fullName;
     private String email;
     private String phoneNumber;
-    private ImageDto logo;
+    private ImageOutputDto logo;
     private Role role;
     private Gender gender;
     private Long birthday;

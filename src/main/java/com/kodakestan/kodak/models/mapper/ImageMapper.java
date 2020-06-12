@@ -6,12 +6,14 @@ import com.kodakestan.kodak.models.entities.Image;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.inject.Inject;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -19,6 +21,9 @@ import java.util.List;
 
 @Component
 public class ImageMapper {
+    private static String imgMan = null;
+    private static String imgWMan = null;
+
     @Inject
     private GridFS gridFS;
 
@@ -86,4 +91,21 @@ public class ImageMapper {
         return new ImageOutputDto(str);
     }
 
+    public static String getImgMan() throws IOException {
+        if (imgMan != null)
+            return imgMan;
+        byte[] fileContent;
+        fileContent = FileUtils.readFileToByteArray(new File("iPanel.png"));
+        imgMan = Base64.getEncoder().encodeToString(fileContent);
+        return imgMan;
+    }
+
+    public static String getImgWMan() throws IOException {
+        if (imgWMan != null)
+            return imgWMan;
+        byte[] fileContent;
+        fileContent = FileUtils.readFileToByteArray(new File("iPanel.png"));
+        imgWMan = Base64.getEncoder().encodeToString(fileContent);
+        return imgWMan;
+    }
 }
