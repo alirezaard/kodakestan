@@ -1,7 +1,32 @@
 spring:
+  application:
+    name: advertise
   thymeleaf:
     cache: true
     enabled: true
     prefix: classpath:/templates/
     suffix: .html
     encoding: UTF-8
+  data:
+    mongodb:
+      uri: mongoda://localhost:27017
+      host: localhost
+      port: 27017
+      username: kodakestan
+      password: Aban#02122145103$Kodak~ha
+      grid-fs-database: kodakestan
+      authentication-database: kodakestan
+      database: kodakestan
+      repositories:
+        type: auto
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+logging:
+  level: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/server.log
