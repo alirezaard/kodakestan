@@ -7,6 +7,8 @@ import com.kodakestan.kodak.models.dto.output.ArticleOutputDto;
 import com.kodakestan.kodak.models.entities.Image;
 import com.kodakestan.kodak.models.mapper.ArticleMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.List;
  * date 6.5.2020
  */
 @Service
+@Transactional(isolation = Isolation.SERIALIZABLE)
 public class ArticleService implements Crud<ArticleInputDto, ArticleOutputDto> {
 
     @Inject
@@ -24,6 +27,11 @@ public class ArticleService implements Crud<ArticleInputDto, ArticleOutputDto> {
 
     @Inject
     private ArticleMapper mapper;
+
+    @Override
+    public ArticleOutputDto find(String uuid) {
+        return null;
+    }
 
     @Override
     public ArticleOutputDto insert(ArticleInputDto inoutDto) {

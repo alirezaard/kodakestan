@@ -96,7 +96,7 @@ public class ImageMapper {
         if (imgMan != null)
             return imgMan;
         byte[] fileContent;
-        fileContent = FileUtils.readFileToByteArray(new File("iPanel.png"));
+        fileContent = FileUtils.readFileToByteArray(new File("avatar.png"));
         imgMan = Base64.getEncoder().encodeToString(fileContent);
         return imgMan;
     }
@@ -105,7 +105,7 @@ public class ImageMapper {
         if (imgWMan != null)
             return imgWMan;
         byte[] fileContent;
-        fileContent = FileUtils.readFileToByteArray(new File("iPanel.png"));
+        fileContent = FileUtils.readFileToByteArray(new File("avatar.png"));
         imgWMan = Base64.getEncoder().encodeToString(fileContent);
         return imgWMan;
     }

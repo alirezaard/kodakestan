@@ -11,6 +11,7 @@ import java.util.List;
  * date 6.5.2020
  */
 public interface Crud<In, Out> extends Serializable {
+    Out find(String uuid);
     Out insert(In in);
     void delete(In in);
     List<In> getAll();

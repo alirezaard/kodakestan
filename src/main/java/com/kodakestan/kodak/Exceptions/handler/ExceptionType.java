@@ -10,7 +10,11 @@ public enum ExceptionType {
     ERR_INTERNAL_SERVER_ERROR(106),
 
     //service Exception
-    ERR_BAD_REQUEST(201);
+    ERR_BAD_REQUEST(201),
+
+    THERE_IS_NO_ACTIVE_USER_ERROR(202);
+
+
     private int code;
 
     ExceptionType(int code) {

@@ -5,6 +5,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * @author Alireza
  * @version 1.0.0
@@ -12,5 +14,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserRepo extends MongoRepository<User, ObjectId> {
-    User findFirstByEmail(String email);
+    Optional<User> findFirstByEmailAndActiveIsTrue(String email);
+    Optional<User> findFirstByUuid(String uuid);
 }

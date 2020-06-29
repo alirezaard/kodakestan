@@ -1,4 +1,5 @@
 spring:
+  profiles: testy
   application:
     name: advertise
   thymeleaf:
@@ -23,6 +24,22 @@ spring:
     multipart:
       max-file-size: 2MB
       max-request-size: 5MB
+  mail:
+    host: smtp.gmail.com
+    port: 25
+    username: farhadi.kam@gmail.com  #Replace this field with your Gmail username.
+    password: xnrpxxlmuotxzjae           #Replace this field with your Gmail password.
+    protocol: smtp
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+  jackson:
+    serialization.write_dates_as_timestamps: false
+    serialization.indent_output: true
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+
 logging:
   level: debug
   pattern:
